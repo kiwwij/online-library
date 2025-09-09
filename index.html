@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+    <title>Онлайн-бібліотека Лібріум</title>
+        <meta charset="UTF-8">
+        <meta name="author" content="kiwwij">
+        <meta name="description" content="librium, books, read, online, library">
+        <meta name="keywords" content="лібріум, книги, читати, онлайн, library, read, books">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="img/shortcut_icon.png">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="adaptation.css">
+        <script src="script.js" defer></script>
+        <script src="books.js" defer></script>
+        <script src="search.js" defer></script>
+        <link href="https://cdn.boxicons.com/fonts/basic/boxicons.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="wrap">
+            <div class="info">
+                <div class="o-librium">
+                    <a href="index.html"><img src="img/logo.png" alt="Logo" class="logo"></a>
+                    
+                    <!-- Кнопка гамбургер -->
+                    <div class="hamburger" id="hamburgerMenu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <ul class="menu">
+                        <li>
+                            <a class="nav">Країни</a>
+                            <ul>
+                                <li><a href="ukraine.html">Україна</a></li>
+                                <li><a href="japan.html">Японія</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <a class="all_books" href="all_books.html">Список книг</a>
+
+                    <a class="my-library" href="mylibrary.html">Моя бібліотека</a>
+                </div>
+            </div>
+
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Пошук">
+                    <button id="searchButton">
+                        <i class='bxr  bx-search'  ></i> 
+                    </button>
+                    <div class="search-results"></div>
+            </div>
+            
+            <ul>
+                <li><a class="account" href="login.html" id="loginButton">Увійти</a></li>
+                <li><a class="account" href="register.html" id="registerButton">Реєстрація</a></li>
+            </ul>
+        </div>
+
+        <!-- Мобільне меню -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="ukraine.html">Україна</a>
+            <a href="japan.html">Японія</a>
+            <a href="all_books.html">Список книг</a>
+            <a href="mylibrary.html">Моя бібліотека</a>
+            <a href="login.html">Увійти</a>
+            <a href="register.html">Реєстрація</a>
+        </div>
+
+    </header>
+
+    <main>
+        
+        <section class="banner-slider">
+            <div class="banner-slide">
+                <h1>Ласкаво просимо до Лібріум!</h1>
+                <p>Читайте книги онлайн безкоштовно</p>
+                <img src="img/banner1.png" alt="Banner 1">
+            </div>
+            <div class="banner-slide">
+                <h1>Нові книги щотижня!</h1>
+                <p>Обирайте ваші улюблені жанри</p>
+                <img src="img/banner2.png" alt="Banner 2">
+            </div>
+        </section>
+
+        <section class="new-books">
+            <h2>Новинки</h2>
+            <div class="new-books-slider">
+                <a href="books/book.html?id=1" class="book-card">
+                <img src="img/books/book1.webp" alt="Я (Романтика)">
+                <p>Я (Романтика)</p>
+                </a>
+                <a href="books/book.html?id=2" class="book-card">
+                <img src="img/books/book2.jpg" alt="Лісова пісня">
+                <p>Лісова пісня</p>
+                </a>
+                <a href="books/book.html?id=3" class="book-card">
+                <img src="img/books/book6.jpg" alt="Реінкарнація безробітного">
+                <p>Реінкарнація безробітного</p>
+                </a>
+                <a href="books/book.html?id=4" class="book-card">
+                <img src="img/books/book4.jpg" alt="Re:Zero − Життя з нуля в іншому світі">
+                <p>Re:Zero − Життя з нуля...</p>
+                </a>
+                <a href="books/book.html?id=5" class="book-card">
+                <img src="img/books/book5.jpg" alt="Тіні забутих предків">
+                <p>Тіні забутих предків</p>
+                </a>
+                <a href="books/book.html?id=6" class="book-card">
+                <img src="img/books/book3.webp" alt="Сага про Вінланд">
+                <p>Сага про Вінланд</p>
+                </a>
+            </div>
+        </section>
+
+            <!-- Пошук книги за ID -->
+            <div class="id-search-block">
+                <div class="id-search-container">
+                    <p class="search-title">Пошук книги за ID</p>
+                    <div class="search-input-wrapper">
+                    <input type="text" id="search-id" placeholder="Введіть ID книги">
+                    <button id="search-id-btn">Знайти</button>
+                    </div>
+                </div>
+                
+                <div id="result-id" class="search-result-id"></div>
+            </div>
+
+    </main>
+
+    <footer>
+        <div class="footer-container">
+
+            <!-- Ліва частина -->
+            <div class="footer-info">
+                <p>© 2025 Лібріум. Всі права захищені.</p>
+                <p>Email: <a href="mailto:info@librium.com">info@librium.com</a></p>
+            </div>
+
+            <!-- Центр -->
+            <div class="footer-nav">
+                <a href="about.html">О «Лібріум»</a>
+                <a href="vacancies.html">Вакансії</a>
+                <a href="privacy.html">Конфіденційність</a>
+                <a class="support-btn">Підтримка</a>
+            </div>
+
+            <!-- Права частина -->
+            <div class="footer-social">
+                <a target="_blank" href="https://www.instagram.com/vntu_official/"><img src="img/instagram.png" alt="Instagram"></a>
+                <a target="_blank" href="https://www.facebook.com/vntu.official/"><img src="img/facebook.png" alt="Facebook"></a>
+                <a target="_blank" href="https://www.youtube.com/@VNTU"><img src="img/youtube.png" alt="YouTube"></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальне вікно підтримки -->
+    <div class="modal-overlay" id="supportModal">
+        <div class="modal-window">
+            <button class="close-btn" id="closeModal">&times;</button>
+            <div class="modal-content">
+            <img src="img/librium_logo.png" alt="Books" class="modal-image">
+            <div class="modal-text">
+                <h2>Підтримка проєкта</h2>
+                <p>Ви можете підтримати нас через:</p>
+                <ul>
+                <li><img src="img/privat24_logo.png" alt="Приват24" class="modal-bank-logo"><strong>Приват24</strong> – 5168 7451 6096 8670</li>
+                <li><img src="img/monobank_logo.png" alt="Монобанк" class="modal-bank-logo"><strong>Монобанк</strong> – 4441 1110 4545 4752</li>
+                </ul>
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+    <title>Список усіх книг Лібріум</title>
+        <meta charset="UTF-8">
+        <meta name="author" content="kiwwij">
+        <meta name="description" content="librium, books, read, online, library">
+        <meta name="keywords" content="лібріум, книги, читати, онлайн, library, read, books, all books, список книг, усі книги, книги, бібліотека, онлайн бібліотека, librium">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="img/shortcut_icon.png">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="adaptation.css">
+        <script src="script.js" defer></script>
+        <script src="all_books.js" defer></script>
+        <script src="books.js" defer></script>
+        <script src="book/book.js" defer></script>
+        <link href="https://cdn.boxicons.com/fonts/basic/boxicons.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="wrap">
+            <div class="info">
+                <div class="o-librium">
+                    <a href="index.html"><img src="img/logo.png" alt="Logo" class="logo"></a>
+
+                    <!-- Кнопка гамбургер -->
+                    <div class="hamburger" id="hamburgerMenu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <ul class="menu">
+                        <li>
+                            <a class="nav">Країни</a>
+                            <ul>
+                                <li><a href="ukraine.html">Україна</a></li>
+                                <li><a href="japan.html">Японія</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <a class="all_books" href="all_books.html">Список книг</a>
+
+                    <a class="my-library" href="mylibrary.html">Моя бібліотека</a>
+                </div>
+            </div>
+
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Пошук">
+                    <button id="searchButton">
+                        <i class='bxr  bx-search'  ></i> 
+                    </button>
+                    <div class="search-results"></div>
+            </div>
+            
+            <ul>
+                <li><a class="account" href="login.html" id="loginButton">Увійти</a></li>
+                <li><a class="account" href="register.html" id="registerButton">Реєстрація</a></li>
+            </ul>
+        </div>
+
+        <!-- Мобільне меню -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="ukraine.html">Україна</a>
+            <a href="japan.html">Японія</a>
+            <a href="all_books.html">Список книг</a>
+            <a href="mylibrary.html">Моя бібліотека</a>
+            <a href="login.html">Увійти</a>
+            <a href="register.html">Реєстрація</a>
+        </div>
+
+    </header>
+
+    <main class="books-page">
+    <div class="container">
+        <div class="filters">
+            <label>
+                <select id="filter-country">
+                    <option value="all">Всі країни</option>
+                    <option value="Україна">Україна</option>
+                    <option value="Японія">Японія</option>
+                </select>
+            </label>
+
+            <label>
+                <select id="filter-genre">
+                    <option value="all">Всі жанри</option>
+                    <option value="Драма">Драма</option>
+                    <option value="Фентезі">Фентезі</option>
+                    <option value="Ісекай">Ісекай</option>
+                    <option value="Пригоди">Пригоди</option>
+                    <option value="Історія">Історія</option>
+                    <option value="Романтика">Романтика</option>
+                </select>
+            </label>
+
+            <!-- Сортування тепер тут -->
+            <label>
+                <select id="sort-books">
+                    <option value="default">Без сортування</option>
+                    <option value="title-asc">Назва: A → Я</option>
+                    <option value="title-desc">Назва: Я → A</option>
+                    <option value="author-asc">Автор: A → Я</option>
+                    <option value="author-desc">Автор: Я → A</option>
+                </select>
+            </label>
+        </div>
+
+        <div id="books-list" class="books-list">
+            <!-- Тут JS вставить книги -->
+        </div>
+    </div>
+</main>
+
+    <footer>
+        <div class="footer-container">
+
+            <div class="footer-info">
+                <p>© 2025 Лібріум. Всі права захищені.</p>
+                <p>Email: <a href="mailto:info@librium.com">info@librium.com</a></p>
+            </div>
+
+            <div class="footer-nav">
+                <a href="about.html">О «Лібріум»</a>
+                <a href="vacancies.html">Вакансії</a>
+                <a href="privacy.html">Конфіденційність</a>
+                <a class="support-btn">Підтримка</a>
+            </div>
+
+            <div class="footer-social">
+                <a target="_blank" href="https://www.instagram.com/vntu_official/"><img src="img/instagram.png" alt="Instagram"></a>
+                <a target="_blank" href="https://www.facebook.com/vntu.official/"><img src="img/facebook.png" alt="Facebook"></a>
+                <a target="_blank" href="https://www.youtube.com/@VNTU"><img src="img/youtube.png" alt="YouTube"></a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal-overlay" id="supportModal">
+        <div class="modal-window">
+            <button class="close-btn" id="closeModal">&times;</button>
+            <div class="modal-content">
+            <img src="img/librium_logo.png" alt="Books" class="modal-image">
+            <div class="modal-text">
+                <h2>Підтримка проєкта</h2>
+                <p>Ви можете підтримати нас через:</p>
+                <ul>
+                <li><img src="img/privat24_logo.png" alt="Приват24" class="modal-bank-logo"><strong>Приват24</strong> – 5168 7451 6096 8670</li>
+                <li><img src="img/monobank_logo.png" alt="Монобанк" class="modal-bank-logo"><strong>Монобанк</strong> – 4441 1110 4545 4752</li>
+                </ul>
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

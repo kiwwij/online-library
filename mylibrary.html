@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+    <title>Моя бібліотека. Лібріум</title>
+        <meta charset="UTF-8">
+        <meta name="author" content="kiwwij">
+        <meta name="description" content="librium, books, read, online, library">
+        <meta name="keywords" content="лібріум, книги, читати, онлайн, library, read, books, японія, japan">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="img/shortcut_icon.png">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="adaptation.css">
+        <script src="script.js" defer></script>
+        <link href="https://cdn.boxicons.com/fonts/basic/boxicons.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="wrap">
+            <div class="info">
+                <div class="o-librium">
+                    <a href="index.html"><img src="img/logo.png" alt="Logo" class="logo"></a>
+
+                    <!-- Кнопка гамбургер -->
+                    <div class="hamburger" id="hamburgerMenu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <ul class="menu">
+                        <li>
+                            <a class="nav">Країни</a>
+                            <ul>
+                                <li><a href="ukraine.html">Україна</a></li>
+                                <li><a href="japan.html">Японія</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <a class="all_books" href="all_books.html">Список книг</a>
+
+                    <a class="my-library" href="mylibrary.html">Моя бібліотека</a>
+                </div>
+            </div>
+
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Пошук">
+                    <button id="searchButton">
+                        <i class='bxr  bx-search'  ></i> 
+                    </button>
+                    <div class="search-results"></div>
+            </div>
+
+            <ul>
+                <li><a class="account" href="login.html" id="loginButton">Увійти</a></li>
+                <li><a class="account" href="register.html" id="registerButton">Реєстрація</a></li>
+            </ul>
+        </div>
+
+        <!-- Мобільне меню -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="ukraine.html">Україна</a>
+            <a href="japan.html">Японія</a>
+            <a href="all_books.html">Список книг</a>
+            <a href="mylibrary.html">Моя бібліотека</a>
+            <a href="login.html">Увійти</a>
+            <a href="register.html">Реєстрація</a>
+        </div>
+
+    </header>
+
+    <main>
+        <h4>Дорогий Гість! Бібліотека доступна зареєстрованим користувачам порталу "Лібріум". <br> Будь ласка, зареєструйтесь або авторизуйтесь на порталі.</h4>
+        <div class="login-btn">
+            <a href="login.html">Увійти на сайт</a>
+        </div>
+
+        <div class="mylib_title">
+            <p><strong>Навіщо мені Бібліотека?</strong></p>
+            <p>По-перше, ви можете відкласти будь-яку книгу, що зацікавила вас, щоб потім легко знайти її в своїй бібліотеці.</p>
+            <p>По-друге, якщо книга з вашої бібліотеки оновлюється її автором, вам надходитимуть повідомлення про це і ви не пропустите нічого цікавого.</p>
+
+            <p><strong>Як додати книгу до бібліотеки?</strong></p>
+            <p>Посилання "Додати до бібліотеки" ви зустрінете як на сторінці книги, так і в стрічках книг. Навіть читаючи книгу, ви можете не відволікаючись відкласти книгу в свою бібліотеку, натиснувши посилання в правій частині сторінки читання.</p>
+
+            <p><strong>Чим ще корисна бібліотека?</strong></p>
+            <p>На головній сторінці сайту є новинки, які можуть вас зацікавити. Ми постійно працюємо над покращенням нашого сайту.</p>
+        </div>
+
+        <div class="register-btn">
+            <a href="register.html">Реєстрація на сайті</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+
+            <div class="footer-info">
+                <p>© 2025 Лібріум. Всі права захищені.</p>
+                <p>Email: <a href="mailto:info@librium.com">info@librium.com</a></p>
+            </div>
+
+            <div class="footer-nav">
+                <a href="about.html">О «Лібріум»</a>
+                <a href="vacancies.html">Вакансії</a>
+                <a href="privacy.html">Конфіденційність</a>
+                <a class="support-btn">Підтримка</a>
+            </div>
+
+            <div class="footer-social">
+                <a target="_blank" href="https://www.instagram.com/vntu_official/"><img src="img/instagram.png" alt="Instagram"></a>
+                <a target="_blank" href="https://www.facebook.com/vntu.official/"><img src="img/facebook.png" alt="Facebook"></a>
+                <a target="_blank" href="https://www.youtube.com/@VNTU"><img src="img/youtube.png" alt="YouTube"></a>
+            </div>
+        </div>
+    </footer>
+
+        <div class="modal-overlay" id="supportModal">
+        <div class="modal-window">
+            <button class="close-btn" id="closeModal">&times;</button>
+            <div class="modal-content">
+            <img src="img/librium_logo.png" alt="Books" class="modal-image">
+            <div class="modal-text">
+                <h2>Підтримка проєкта</h2>
+                <p>Ви можете підтримати нас через:</p>
+                <ul>
+                <li><img src="img/privat24_logo.png" alt="Приват24" class="modal-bank-logo"><strong>Приват24</strong> – 5168 7451 6096 8670</li>
+                <li><img src="img/monobank_logo.png" alt="Монобанк" class="modal-bank-logo"><strong>Монобанк</strong> – 4441 1110 4545 4752</li>
+                </ul>
+            </div>
+            </div>
+        </div>
+    </div>  
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+    <title>Авторизація Лібріум</title>
+        <meta charset="UTF-8">
+        <meta name="author" content="kiwwij">
+        <meta name="description" content="librium, books, read, online, library">
+        <meta name="keywords" content="лібріум, книги, читати, онлайн, library, read, books">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="img/shortcut_icon.png">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="adaptation.css">
+        <script src="script.js" defer></script>
+        <script src="reg_log.js" defer></script>
+        <link href="https://cdn.boxicons.com/fonts/basic/boxicons.min.css" rel="stylesheet">
+</head>
+
+<body class="register-page">
+    <div class="auth-wrapper">
+        <a href="index.html"><img src="img/logo.png" alt="Logo" class="reg_logo"></a>
+        <div class="auth-box">
+            <form class="form register-form">
+                <h2>Реєстрація</h2>
+                <div class="input-group">
+                    <input type="text" placeholder="Ім'я" required>
+                </div>
+
+                <div class="input-group">
+                    <input type="email" placeholder="Email" required>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" id="password" placeholder="Пароль" required>
+                    <span id="password-error" class="error-msg" style="display:none; color:red; font-size:12px;">Пароль повинен містити англ. букви, цифри та спецсимволи</span>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" id="confirm-password" placeholder="Підтвердження пароля" required>
+                    <span id="confirm-error" class="error-msg" style="display:none; color:red; font-size:12px;">Паролі не співпадають</span>
+                </div>
+
+                <button type="submit" class="btn">Зареєструватися</button>
+                <p class="switch-text">Вже є акаунт? <a href="login.html">Увійти</a></p>
+            </form>
+        </div>
+  </div>
+  
+</body>
+</html>

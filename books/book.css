@@ -1,0 +1,67 @@
+body {
+  background-color: #f5f5f5;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.book-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.book-container {
+  display: flex;
+  gap: 30px;
+  max-width: 800px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.book-container img {
+  width: 250px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.book-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.book-info h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.book-info p {
+  font-size: 16px;
+  color: #333;
+}
+
+.modal-text ul {
+    list-style: none; /* прибирає точки */
+    padding: 0;
+    margin: 0;
+}
+
+.modal-text ul li {
+    display: flex;
+    align-items: center; /* вирівнює картинку та текст по центру */
+    gap: 10px; /* відступ між картинкою та текстом */
+    margin-bottom: 8px; /* відступ між рядками */
+    font-size: 16px;
+    color: #444;
+    white-space: nowrap; /* не переносити текст на новий рядок */
+}
+
+.modal-bank-logo {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    flex-shrink: 0; /* щоб картинка не стискалась */
+}
