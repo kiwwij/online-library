@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ---------- Пошук (якщо є елементи) ---------- */
+  /* ---------- Пошук (fetch + локальні дані) ---------- */
   const searchInput = document.getElementById('searchInput');
   const searchButton = document.getElementById('searchButton');
   const resultsContainer = document.querySelector('.search-results');
@@ -13,34 +13,52 @@ document.addEventListener('DOMContentLoaded', () => {
         resultsContainer.classList.remove('show-shadow');
         return;
       }
+
+      let data = [];
+
       try {
+        // === Основна спроба через fetch ===
         const res = await fetch('books.json', { cache: 'no-store' });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const data = await res.json();
-        const results = data.filter(b =>
-          [b.title, b.author, b.genres, b.description]
-            .filter(Boolean)
-            .some(f => f.toLowerCase().includes(query))
-        );
-        if (results.length) {
-          resultsContainer.innerHTML = results.map(b => `
-            <div class="search-result-item">
-              <a href="books/book.html?id=${b.id}">${b.title}</a>
-            </div>
-          `).join('');
-          resultsContainer.classList.add('show-shadow');
-        } else {
-          resultsContainer.innerHTML = '<div class="search-result-item">ㅤНічого не знайдено 😢</div>';
-          resultsContainer.classList.add('show-shadow');
-        }
+        data = await res.json();
       } catch (err) {
-        console.error(err);
-        resultsContainer.innerHTML = '<div class="search-result-item">Помилка завантаження</div>';
-        resultsContainer.classList.add('show-shadow');
+        // === Якщо fetch не працює — використовуємо локальні дані ===
+        console.warn('⚠ Fetch не спрацював, використовую локальні дані:', err);
+        if (window.BOOKS_DATA && window.BOOKS_DATA.length) {
+          data = window.BOOKS_DATA;
+        } else {
+          console.error('❌ Локальні дані відсутні');
+          resultsContainer.innerHTML = '<div class="search-result-item">Помилка завантаження</div>';
+          resultsContainer.classList.add('show-shadow');
+          return;
+        }
       }
+
+      // === Фільтрація книг ===
+      const results = data.filter(b =>
+        [b.title, b.author, b.genres, b.description]
+          .filter(Boolean)
+          .some(f => f.toLowerCase().includes(query))
+      );
+
+      // === Відображення результатів ===
+      if (results.length) {
+        resultsContainer.innerHTML = results.map(b => `
+          <div class="search-result-item">
+            <a href="books/book.html?id=${b.id}">${b.title}</a>
+          </div>
+        `).join('');
+      } else {
+        resultsContainer.innerHTML = '<div class="search-result-item">ㅤНічого не знайдено 😢</div>';
+      }
+
+      resultsContainer.classList.add('show-shadow');
     }
 
+    // Клік по кнопці пошуку
     searchButton.addEventListener('click', searchBooks);
+
+    // Натискання Enter у полі пошуку
     searchInput.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') searchBooks();
     });
@@ -71,8 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         currentSlide.style.transition = 'none';
         currentSlide.style.transform = 'translateX(100%)';
-        // force reflow then re-enable transition (safe way)
-        void currentSlide.offsetWidth;
+        void currentSlide.offsetWidth; // reset
         currentSlide.style.transition = `transform ${animTime}ms ease`;
       }, animTime);
 
@@ -89,18 +106,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeModalBtn = document.getElementById('closeModal');
 
   if (supportBtn && modal && closeModalBtn) {
-    supportBtn.addEventListener('click', () => {
-      modal.style.display = 'flex';
-    });
-    closeModalBtn.addEventListener('click', () => {
-      modal.style.display = 'none';
-    });
+    supportBtn.addEventListener('click', () => modal.style.display = 'flex');
+    closeModalBtn.addEventListener('click', () => modal.style.display = 'none');
     modal.addEventListener('click', (e) => {
       if (e.target === modal) modal.style.display = 'none';
     });
   }
 
-  /* ---------- Авторизація: перемикання форм (тільки якщо є елементи) ---------- */
+  /* ---------- Авторизація: перемикання форм ---------- */
   const showRegister = document.getElementById('showRegister');
   const showLogin = document.getElementById('showLogin');
   const loginForm = document.getElementById('loginForm');
@@ -117,18 +130,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ---------- Гамбургер / мобільне меню (основна частина) ---------- */
+  /* ---------- Гамбургер меню ---------- */
   const burger = document.getElementById('hamburgerMenu');
   const mobileMenu = document.getElementById('mobileMenu');
 
   if (burger && mobileMenu) {
-    // відкривати/закривати
     burger.addEventListener('click', () => {
-      burger.classList.toggle('open');        // для анімації бургеру
-      mobileMenu.classList.toggle('active'); // показати меню
+      burger.classList.toggle('open');
+      mobileMenu.classList.toggle('active');
     });
 
-    // закривати меню при кліку на пункт
     mobileMenu.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', () => {
         mobileMenu.classList.remove('active');
@@ -136,7 +147,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // якщо змінився розмір >768 — сховати мобільне меню
     window.addEventListener('resize', () => {
       if (window.innerWidth > 768) {
         mobileMenu.classList.remove('active');
